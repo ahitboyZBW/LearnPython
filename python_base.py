@@ -3,6 +3,9 @@
 """这个程序包含一些python基本知识，平时看到的都会弄到这里，是可以直接执行的代码"""
 # reference http://cs231n.github.io/python-numpy-tutorial/
 # 
+
+"""经典的hello world"""
+print('Hello world')
 """基本的数据类型"""
 
 # number 

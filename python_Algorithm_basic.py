@@ -54,6 +54,38 @@ def selectSort(arr):
         newarr.append(arr.pop(smallest))#放在新数列最后面，并将其从原序列删除
     return newarr
 
+# 栈有两个操作：压入和弹出
+# 所有的函数调用都被压入栈
+# 调用栈如果太长，将会占用大量内存
+
+# 递归sum
+def recursive_sum(arr):
+    if len(arr) == 1:
+        return arr[0]
+    elif len(arr) == 0:
+        return 0
+    else:
+        return arr[0] + recursive_sum(arr[1:])
+
+# 递归len for list
+def recursive_len(arr):
+    if arr == []:
+        return 0
+    else:
+        return 1 + recursive_len(arr[0:-1])
+
+# 递归找最大值
+def recursive_max(arr):
+    if len(arr) == 0:
+        return 0
+    
+    if len(arr) == 1:
+        return arr[0]
+    else:
+        if arr[-1] < recursive_max(arr[0:-1]):
+            return recursive_max(arr[0:-1])
+        else:
+            return arr[-1]
 
 
 def main():
@@ -62,8 +94,20 @@ def main():
     print(binary_search(mylist,4))
 
     mylist=[3,5,5,7,9,1]
-    print(selectSort(mylist))
+    print(selectSort(mylist))# 为什么跑完这一步这个数列就没了？？？？？？？
 
+    print(mylist)
+    mylist=[3,5,5,7,9,1]
+    print(recursive_sum(mylist))
+
+    print(mylist)# 为什么跑完这一步这个数列就没了？？？？？？？
+    # python都是按引用传参
+
+    mylist=[3,5,5,7,9,1]
+    print(recursive_len(mylist))
+
+    mylist=[3,5,5,7,9,1]
+    print(recursive_max(mylist))
 if __name__ == '__main__':
    main()
 else:
