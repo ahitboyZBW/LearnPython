@@ -87,6 +87,17 @@ def recursive_max(arr):
         else:
             return arr[-1]
 
+# 快速排序
+def quicksort_v1(arr):
+    if len(arr) < 2:
+        return arr # 基线条件，当长度为1或者0时返回自身
+    else:
+        pivot = arr[0] #选取一个元素
+        less = [i for i in arr[1:] if i <= pivot] #获取比pivot小的数列
+        greater = [i for i in arr[1:] if i > pivot] # 获取比pivot大的数列
+
+        return quicksort_v1(less) + [pivot] + quicksort_v1(greater) # 对上下子列排序，在拼在一起
+
 
 def main():
     mylist=[1,3,5,7,9]
@@ -94,20 +105,21 @@ def main():
     print(binary_search(mylist,4))
 
     mylist=[3,5,5,7,9,1]
-    print(selectSort(mylist))# 为什么跑完这一步这个数列就没了？？？？？？？
+    print(selectSort(mylist))# 为什么跑完这一步这个数列就没了？？？？？？？   python都是按引用传参
 
     print(mylist)
     mylist=[3,5,5,7,9,1]
     print(recursive_sum(mylist))
-
-    print(mylist)# 为什么跑完这一步这个数列就没了？？？？？？？
-    # python都是按引用传参
 
     mylist=[3,5,5,7,9,1]
     print(recursive_len(mylist))
 
     mylist=[3,5,5,7,9,1]
     print(recursive_max(mylist))
+
+    mylist=[3,5,5,7,9,1]
+    print(quicksort_v1(mylist))
+    
 if __name__ == '__main__':
    main()
 else:
