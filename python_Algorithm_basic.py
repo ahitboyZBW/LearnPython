@@ -98,6 +98,7 @@ def quicksort_v1(arr):
 
         return quicksort_v1(less) + [pivot] + quicksort_v1(greater) # 对上下子列排序，在拼在一起
 
+# 二分查找 O(logn) 简单查找O(n)  快速排序 合并排序O(nlogn) 选择排序O(n^2) 旅行商问题 O(n!)
 
 def main():
     mylist=[1,3,5,7,9]
