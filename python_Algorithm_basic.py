@@ -126,6 +126,57 @@ def get_page(url):
 # 第一类问题：从节点A出发，有前往节点B的路径吗？
 # 第二类问题：从节点A出发，前往节点B的哪一条路径最短
 
+# 图的构建是通过散列表实现
+'''
+graph = {}
+graph['you'] = ['alice','bob','claire']
+graph['bob'] = ['asd',',....']
+....
+
+'''
+
+# 广度优先搜索的实现方法是通过队列实现
+# 1、构建一个队列用来存储要检查的元素
+# 2、从队列弹出一个元素
+# 3、这个元素是否是想要的（先判断是不是已经判断过了，避免死循环）
+# 4、不是，的话将邻居加入队列，返回2
+# 5、是的话结束
+
+'''
+from collections import deque
+search_queue = deque()
+search_queue += graph['you'] ,加入你的邻居
+searched = []
+
+while search_queue:   队列不为空
+    person = search_queue.popleft()
+    if not person in searched:
+
+        if person_is_satified():
+            print person is the searching result
+            return True
+        else:
+            search_queue += graph[person]
+            searched.append(person)
+return False
+
+'''
+
+# 当图的边存在加权时，再去找最短路径需要用Dijkstra‘s algorithm，！！！！！！！！！！！！！只适用于有向无环图，
+# 如果有负权边，算法不适用，需要采用Bellman-Ford algorithm
+# 算法步骤：1、找出最便宜的节点
+#          2、更新该节点邻居的开销：对于该点的邻居，检查是否有前往他们的更短的路径，如果有，就更新其开销
+#          3、重复这个过程，直到对图中的每个节点都这么做
+#          4、计算最终路径
+
+#具体算法实现
+# 只要还有要处理的节点
+#获取离起点最近的节点
+#更新其邻居的开销
+#如果有邻居的开销被更新，同时更新父节点
+#将该处理节点标记为处理过
+#返回第一步
+
 def main():
     mylist=[1,3,5,7,9]
     print(binary_search(mylist,3))
@@ -146,6 +197,34 @@ def main():
 
     mylist=[3,5,5,7,9,1]
     print(quicksort_v1(mylist))
+
+    # Dijkstra example
+    # 简历散列表存储图
+    graph_Dij = {}# 即要存储邻居也要存储到邻居的权重
+    graph_Dij['start']={}
+    graph_Dij['start']['a']=6
+    graph_Dij['start']['b']=2
+    graph_Dij['a']={}
+    graph_Dij['a']['final']=1
+    graph_Dij['b']={}
+    graph_Dij['b']={}
+    graph_Dij['b']['a']=3
+    graph_Dij['b']['final'=5
+    graph_Dij['final']={}
+    #再用一个散列表存储每个节点的开销
+    infinity = float('inf')
+    costs = {}
+    costs['a']=6
+    costs['b']=2
+    costs['fin']=infinity
+    # 父节点散列表
+    parents = {}
+    parents['a']='start'
+    parents['b']='start'
+    parents['fin']=None
+
+    # 需要一个数组存储已经处理过的节点
+    processed = []
     
 if __name__ == '__main__':
    main()
