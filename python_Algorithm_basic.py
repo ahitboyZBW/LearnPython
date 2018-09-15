@@ -209,11 +209,7 @@ def main():
     graph_Dij['b']={}
     graph_Dij['b']={}
     graph_Dij['b']['a']=3
-<<<<<<< HEAD
     graph_Dij['b']['final']=5
-=======
-    graph_Dij['b']['final'=5
->>>>>>> cd24ca1927c74bdbf29cde83f519121a0945bb20
     graph_Dij['final']={}
     #再用一个散列表存储每个节点的开销
     infinity = float('inf')
@@ -229,10 +225,7 @@ def main():
 
     # 需要一个数组存储已经处理过的节点
     processed = []
-<<<<<<< HEAD
     
-=======
->>>>>>> cd24ca1927c74bdbf29cde83f519121a0945bb20
     
 if __name__ == '__main__':
    main()
