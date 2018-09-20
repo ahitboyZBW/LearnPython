@@ -1,3 +1,4 @@
+# _*_ coding: utf-8 _*_ 
 # 利用list创建队列
 # 队列的队尾在列表的0位置
 class Queue:
@@ -16,7 +17,20 @@ class Queue:
     def size(self):
         return len(self.items)
 
+def hotPotato(namelist,num):
+    potato_queue = Queue()
+    for iterm in namelist:
+        potato_queue.enqueue(iterm)
+    
+    while potato_queue.size() > 1:# 还剩一个人的时候停止
+        for i in range(num):
+            potato_queue.enqueue(potato_queue.dequeue()) #少于循环次数时将队头的放到队尾
+        potato_queue.dequeue() #删除队尾的倒霉蛋
+    return potato_queue.dequeue() #返回最后一个人
 
+
+    
+    
 
 
 def main():
@@ -27,6 +41,8 @@ def main():
     print(q.size())
     print(q.dequeue())
     print(q)
+
+    print(hotPotato(['A','B','C','D','E','F'],7))
     
 if __name__ == '__main__':
    main()
