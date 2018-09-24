@@ -60,4 +60,9 @@ print(fields)
 print(homedir)
 print(sh)
 
-# 星号提取之后丢弃掉，不能只用
+# 星号提取之后丢弃掉，不能只用*号，要用*加上一个废弃的名称，例如_或者ign
+
+record = ('ACME', 50, 123.45, (12, 18, 2012))
+name, *_,(*_,year) = record
+print(name)
+print(year)
