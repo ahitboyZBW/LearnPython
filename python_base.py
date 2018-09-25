@@ -586,3 +586,48 @@ print(x + np.reshape(w, (2, 1)))
 print(x * 2)
 
 
+"""sicpy""" # https://docs.scipy.org/doc/scipy/reference/index.html
+#各种领域的库
+"""Matplotlib""" # 画图库，这里以pyplot为例，比较像matlab
+import matplotlib.pyplot as plt
+
+# Compute the x and y coordinates for points on a sine curve
+x = np.arange(0, 3 * np.pi, 0.1)
+y = np.sin(x)
+
+# Plot the points using matplotlib
+plt.plot(x, y)
+plt.show()  # You must call plt.show() to make graphics appear.
+
+x = np.arange(0, 3 * np.pi, 0.1)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+
+# Plot the points using matplotlib
+plt.plot(x, y_sin)
+plt.plot(x, y_cos)
+plt.xlabel('x axis label')
+plt.ylabel('y axis label')
+plt.title('Sine and Cosine')
+plt.legend(['Sine', 'Cosine'])
+plt.show()
+# subplot
+x = np.arange(0, 3 * np.pi, 0.1)
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+
+# Set up a subplot grid that has height 2 and width 1,
+# and set the first such subplot as active.
+plt.subplot(2, 1, 1)
+
+# Make the first plot
+plt.plot(x, y_sin)
+plt.title('Sine')
+
+# Set the second subplot as active, and make the second plot.
+plt.subplot(2, 1, 2)
+plt.plot(x, y_cos)
+plt.title('Cosine')
+
+# Show the figure.
+plt.show()
