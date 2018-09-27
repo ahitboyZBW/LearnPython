@@ -76,7 +76,7 @@ print(stack)
 # 像队列一下使用list，first in first out,对于list来说，在队尾插入效率并不高，insert之后所有的元素都要向后移动一个。
 # 为了更高效率的实现，使用collections.deque，能实现队尾和队头的快速插入和删除
 
-from collections import deque
+from collections import deque # deque实际是双端队列
 
 queue = deque(["Erric","John","Michael"])
 queue.append("Terry")
