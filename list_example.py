@@ -18,5 +18,58 @@ class Node:
     def setNext(self,newNext):
         self.next = newNext
 
+class UnorderedList:
+    def __init__(self):
+        self.head = None
+    def isEmpty(self):
+        return self.head == None
+    def add(self,item):
+        temp = Node(item)
+        temp.setNext(self.head) 
+        self.head = temp
+    def size(self): # 链表求元素个数，查找，删除元素都要用到遍历，终止条件就是当前的引用不为空
+        current = self.head
+        count = 0
+        while current != None:
+            count = count + 1
+            current = current.getNext()
+        return count
+    def search(self,item):
+        current = self.head
+        found = False
+        while current != None and not found:
+            if current.getData() == item:
+                found = True
+            else:
+                current = current.getNext()
+        return found
+    def remove(self,item):
+        #这个好好想想
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+    
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext)
+    def append(self,item): # 算法复杂度为O(n)的实现，采用遍历
+        current = self.head
+        while current.getNext() != None:
+            current = current.getNext()
+        temp = Node(item)
+        current.setNext(temp)
+    def appendSimple(self, item):# 算法复杂度为O(1)的实现？？？？
+        #tip将你的算法的时间复杂度简化为 O（1）。注 意！这时你需要考虑非常多的特殊情况，同时要修改 add 方法。
+        return True # 不会啊
+
+
+
 temp = Node(93)
 print(temp.getData())
