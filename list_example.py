@@ -69,7 +69,48 @@ class UnorderedList:
         #tip将你的算法的时间复杂度简化为 O（1）。注 意！这时你需要考虑非常多的特殊情况，同时要修改 add 方法。
         return True # 不会啊
 
+class OrderedList:
+    def __init__(self):
+        self.head = None
+    def isEmpty(self):
+        return self.head == None
+    def size(self): # 链表求元素个数，查找，删除元素都要用到遍历，终止条件就是当前的引用不为空
+        current = self.head
+        count = 0
+        while current != None:
+            count = count + 1
+            current = current.getNext()
+        return count
+    def search(self,item):
+        current = self.head
+        found = False
+        stop = False
+        while current != None and not found and not stop:
+            if current.get_data()==item:
+                found = True
+            else:
+                if current.get_data() > item:
+                    stop = True
+                else:
+                    current = current.get_next()
+        return found
 
-
+    def add(self,item):
+        current = self.head
+        previous = None
+        stop = False
+        while current != None and not stop:
+            if current.get_data() > item:
+                stop = True
+            else:
+                previous = current
+                current = current.get_next()
+        temp = Node(item)
+        if previous == None:
+            temp.set_next(self.head)
+            self.head = temp
+        else:
+            temp.set_next(current)
+            previous.set_next(temp)
 temp = Node(93)
 print(temp.getData())
