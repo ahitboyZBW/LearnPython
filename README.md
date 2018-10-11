@@ -5,3 +5,4 @@ python_Algorithm_basic.py 算法新解时记得一点东西
 queue_example.py 队列的例子
 list_example.py 无序列表的例子
 star_notation_function.py python中*的作用
+Zip_usage.py python 中zip的用法
