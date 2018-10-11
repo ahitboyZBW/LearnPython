@@ -23,7 +23,8 @@ print(a)
 _,shares,price,_ = data
 print(shares)
 
-# 如果可迭代对象的元素个数超过变量的个数时，会抛出ValueError，那么怎么才能从可迭代变量中解压出N个元素：*可以解决
+# 如果可迭代对象的元素个数超过变量的个数时，会抛出ValueError，
+# 那么怎么才能从可迭代变量中解压出N个元素：*可以解决
 # 情况1： 去掉开头和结尾，只要中间，但是不知道中间到底有多少个元素
 grade = [1,2,3,4,5,6]
 first,*middle,last = grade
