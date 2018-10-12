@@ -6,3 +6,6 @@
 ### list_example.py 无序列表的例子
 ### star_notation_function.py python中*的作用
 ### Zip_usage.py python 中zip的用法
+### itchat_test.py 微信接口ichat的使用
+### 2048.py python实现简单的2048游戏
+### 2048_new.py 面向对象的重构，别人的代码
